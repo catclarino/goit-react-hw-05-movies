@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchActors } from 'services/tmdbApi';
 import Loader from '../Loader/loader';
-import { List, Text } from './castStyled';
+import { List, Item, Text } from './castStyled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -34,7 +34,7 @@ const Cast = () => {
 
       <List>
         {actors.map(({ id, profile_path, original_name, name, character }) => (
-          <li key={id}>
+          <Item key={id}>
             <img
               width="200px"
               src={
@@ -46,7 +46,7 @@ const Cast = () => {
             />
             <Text>{name}</Text>
             <Text>Character: {character}</Text>
-          </li>
+          </Item>
         ))}
       </List>
     </div>
